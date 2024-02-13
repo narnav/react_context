@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import { getAll, getSingle } from './data'
+import DisplayProds from './DisplayProds'
+import CartContext from './CartContext'
+import Total from './Total'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [cart, setcart] = useState([])
+    return (
+        <div>
+            <CartContext.Provider value={{ cart, setcart }}>
+                <h1>Items in cart:{cart.length}</h1>
+                <DisplayProds></DisplayProds>
+                <Total></Total>
+            </CartContext.Provider>
+        </div>
+    )
 }
-
-export default App;
+export default App
