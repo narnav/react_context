@@ -3,7 +3,7 @@ const products = [
     { price: 3, desc: "bbb",id:12 },
     { price: 5, desc: "ccc",id:23 },
 ]
-
+// { price: 5, desc: "ccc",id:23,amount:1 },
 export const getAll=()=>{
     return products
 }
